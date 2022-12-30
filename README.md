@@ -1,4 +1,4 @@
-# MOSTest
+# Laronix Naturalness Test
 
 ## Simple explanation of this opensource
 
@@ -35,5 +35,3 @@ If you want to conduct tests other than a MOS test, you need to modify the code 
 You can utilize [ABXTest](https://github.com/chomeyama/ABXTest) if you want to conduct ABX test.
 
 Please feel free to ask any questions you may have.
-# InpaintingMOSTest
-# InpMOStest
