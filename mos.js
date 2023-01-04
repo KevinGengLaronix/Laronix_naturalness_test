@@ -118,6 +118,12 @@ function makeFileList(methods, which_set) {
     if (which_set == "3"){
         var names = loadText(wavnames_c);
     } 
+    if (which_set == "4"){
+        var names = loadText(wavnames_d);
+    } 
+    if (which_set == "5"){
+        var names = loadText(wavnames_e);
+    } 
     for (var i = 0; i < methods.length; i++) {
         for (var j = 0; j < names.length; j++) {
             files.push(methods[i] + names[j] + ".wav");
@@ -262,6 +268,8 @@ const wav_dir = "wav/";
 const wavnames_a = "wav/wavnames1.txt"
 const wavnames_b = "wav/wavnames2.txt"
 const wavnames_c = "wav/wavnames3.txt"
+const wavnames_d = "wav/wavnames4.txt"
+const wavnames_e = "wav/wavnames5.txt"
 const n_utt = 1;
 
 // invalid enter key
