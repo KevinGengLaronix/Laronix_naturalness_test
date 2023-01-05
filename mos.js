@@ -54,9 +54,6 @@ function start_experiment() {
     methods.push(wav_dir + "EL-Arthur the Rat_normed_5_snr_100/");
     methods.push(wav_dir + "TEP-Arthur the Rat_normed_5_snr_100/");
     methods.push(wav_dir + "PAL-Arthur the Rat_normed_5_snr_100/");
-    // methods.push(wav_dir + "mel_db_noise_concat/");
-    // methods.push(wav_dir + "mel_db_ori/");
-    // methods.push(wav_dir + "mel_db_noise_new_concat/");
     // methods.push(wav_dir + "method2/");
     // methods.push(wav_dir + "method3/");
     // methods.push(wav_dir + "method4/");
@@ -150,7 +147,7 @@ function setAudio() {
                 break;
             }
         }
-        var natred = (new Array(6)).fill('');
+        // var natred = (new Array(6)).fill('');
         // for (var j = 0; j < 6; j++) {
         //     if (flu_scores[page * n_per_page + i] == String(j)) {
         //         fluselected[j] = " fluselected";
@@ -246,10 +243,25 @@ function exportCSV() {
     link.parentNode.removeChild(link);
 }
 
+// TODO: Add a alert (and saving function after finishing each pages)
+
 function next() {
-    page++;
-    setAudio();
-    setButton();
+    if (confirm("Good Job! Keep going on! Page: " + String(page + 1) + " out of " + String(Math.ceil(nat_scores.length / n_per_page)))){
+        page++;
+        setAudio();
+        setButton();
+    }
+    else{
+        if (confirm("Are you sure you want to quit this test? \n Once you left, you need to restart from the beginning.")){
+            exportCSV();            
+        }
+        else{
+            alert("Keep going on! Page: " + String(page + 1) + " out of " + String(Math.ceil(nat_scores.length / n_per_page)));
+            page++;
+            setAudio();
+            setButton();
+        }
+    }
 }
 
 function prev() {
