@@ -42,7 +42,7 @@ function start_experiment() {
         }
     }
     if (set_num == "0") {
-        alert("Please press the setlist number button.");
+        alert("Please press the set list number button.");
         return false;
     }
 
@@ -246,17 +246,17 @@ function exportCSV() {
 // TODO: Add a alert (and saving function after finishing each pages)
 
 function next() {
-    if (confirm("Good Job! Keep going on! Page: " + String(page + 1) + " out of " + String(Math.ceil(nat_scores.length / n_per_page)))){
+    if (confirm("Good Job! Keep going on! Page: " + String(page + 1) + " / " + String(Math.ceil(nat_scores.length / n_per_page)))){
         page++;
         setAudio();
         setButton();
     }
     else{
-        if (confirm("Are you sure you want to quit this test? \n Once you left, you need to restart from the beginning.")){
+        if (confirm("Are you sure you want to quit this test? \nOnce you left, you need to restart from the beginning.")){
             exportCSV();            
         }
         else{
-            alert("Keep going on! Page: " + String(page + 1) + " out of " + String(Math.ceil(nat_scores.length / n_per_page)));
+            alert("Keep going on! Page: " + String(page + 1) + " / " + String(Math.ceil(nat_scores.length / n_per_page)));
             page++;
             setAudio();
             setButton();
