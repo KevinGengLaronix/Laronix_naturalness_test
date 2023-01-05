@@ -135,8 +135,8 @@ function setAudio() {
     for (var i = 0; i < n_per_page; i++) {
         // set audio
         document.getElementById("audio" + String(i)).innerHTML = `${i + 1}.<br>`
-            + `<audio src="${file_list[page * n_per_page + i]}"`
-            + ' controls preload="auto">'
+            + `<audio src="${file_list[page * n_per_page + i]}" style="width: 100%"`
+            + ' controls controlsList="noplaybackrate nodownload noremoteplayback" preload="auto">'
             + '</audio>';
 
         // initialize selected option using scores
@@ -165,10 +165,10 @@ function setAudio() {
         //     + `<option value="2"${fluselected[2]}>Poor</option>`
         //     + `<option value="1"${fluselected[1]}>Bad</option>`
         //     + '</select>';
-        document.getElementById("natselect" + String(i)).innerHTML = `<h4>Naturalness</h4>`
+        document.getElementById("natselect" + String(i)).innerHTML = ``
             +`<select id="nat${i}`
             + `" onchange="evaluation(${i})">`
-            + `<option value="0"${natselected[0]}><font color=red>Please Select</font></option>`
+            + `<option value="0"${natselected[0]}>Please Select</option>`
             + `<option value="5"${natselected[5]}>Excellent</option>`
             + `<option value="4"${natselected[4]}>Good</option>`
             + `<option value="3"${natselected[3]}>Fair</option>`
