@@ -51,9 +51,10 @@ function start_experiment() {
 
     // directories for methods
     var methods = [];
-    methods.push(wav_dir + "EL-Arthur the Rat_normed_5_snr_100/");
-    methods.push(wav_dir + "TEP-Arthur the Rat_normed_5_snr_100/");
-    methods.push(wav_dir + "PAL-Arthur the Rat_normed_5_snr_100/");
+    methods.push(wav_dir + "EL-Arthur_the_Rat_normed_5_snr_100/");
+    methods.push(wav_dir + "TEP-Arthur_the_Rat_normed_5_snr_100/");
+    methods.push(wav_dir + "PAL-Arthur_the_Rat_normed_5_snr_100/");
+    methods.push(wav_dir + "HEALTHY-Arthur_the_Rat_normed_5_snr_100/");
     // methods.push(wav_dir + "method2/");
     // methods.push(wav_dir + "method3/");
     // methods.push(wav_dir + "method4/");
@@ -62,7 +63,7 @@ function start_experiment() {
     // methods.push(wav_dir + "method7/");
 
     // number of samples displayed per page
-    n_per_page = 5;
+    n_per_page = 6;
 
     // pick up samples randomly
     var rands = pickN(0, n_utt - 1, n_per_page * 2);
