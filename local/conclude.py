@@ -19,11 +19,18 @@ means = dataset.groupby(" Method").mean()[' Nat'].values
 std = np.squeeze(dataset.groupby(" Method").std().values)
 id = [x.split("-")[0]  for x in dataset.groupby(" Method").mean().index]
 # pdb.set_trace()
-
+print("\n-----Mean-----\n")
+print(dataset.groupby(" Method").mean())
+print("----------")
+print("\n-----Standard Error-----\n")
+print(dataset.groupby(" Method").std())
+print("----------")
+# plot
 plt.bar(x=id, height=means, yerr=std, align="center", ecolor="r", capsize=0.5, alpha=0.5)
 plt.xlabel("Voices")
 plt.ylabel("MOS")
 plt.title("MOS Score with STD")
-# plt.errorbar(means, 0, xerr=sem, linestyle="None")
 plt.savefig("./results/nat.png")
-# pdb.set_trace()
+
+print("Check results/nat.png for more details")
+print("Finished")

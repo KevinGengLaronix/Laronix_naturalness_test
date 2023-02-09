@@ -35,3 +35,11 @@ If you want to conduct tests other than a MOS test, you need to modify the code 
 You can utilize [ABXTest](https://github.com/chomeyama/ABXTest) if you want to conduct ABX test.
 
 Please feel free to ask any questions you may have.
+
+## Concluding
+
+1. Add *.csv files in results/
+
+2. Run `python local/conclude.py`
+
+3. Check results/nat.png
