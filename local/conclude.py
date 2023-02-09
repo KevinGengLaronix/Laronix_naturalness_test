@@ -15,15 +15,15 @@ for x in csvs:
 
 dataset = pd.concat(datalist, ignore_index=False)
 
-means = dataset.groupby(" Method").mean()[' Nat'].values
-std = np.squeeze(dataset.groupby(" Method").std().values)
-id = [x.split("-")[0]  for x in dataset.groupby(" Method").mean().index]
+means = dataset.groupby("Method").mean()['Nat'].values
+std = np.squeeze(dataset.groupby("Method").std().values)
+id = [x.split("-")[0]  for x in dataset.groupby("Method").mean().index]
 # pdb.set_trace()
 print("\n-----Mean-----\n")
-print(dataset.groupby(" Method").mean())
+print(dataset.groupby("Method").mean())
 print("----------")
 print("\n-----Standard Error-----\n")
-print(dataset.groupby(" Method").std())
+print(dataset.groupby("Method").std())
 print("----------")
 # plot
 plt.bar(x=id, height=means, yerr=std, align="center", ecolor="r", capsize=0.5, alpha=0.5)
