@@ -69,7 +69,7 @@ function start_experiment() {
     var rands = pickN(0, n_utt - 1, n_per_page * 2);
     // var number = document.getElementById("number").value
     file_list = makeFileList(methods, set_num);
-    outfile = name + "_" + "set" + set_num + ".csv";
+    outfile = name + "_" + "set" + set_num + "_nat.csv";
     nat_scores = (new Array(file_list.length)).fill(0);
     init();
 }
