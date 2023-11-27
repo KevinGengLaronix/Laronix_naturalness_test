@@ -27,7 +27,7 @@ const pickN = (min, max, n) => {
 }
 
 // start experiment
-function start_experiment() {
+function start_experiment(patient_id) {
     // get user name
     var name = document.getElementById("name").value.replace(" ", "_");
     if (name == "") {
@@ -53,8 +53,21 @@ function start_experiment() {
     var methods = [];
     methods.push(wav_dir + "EL-Arthur_the_Rat_normed_5_snr_100/");
     methods.push(wav_dir + "TEP-Arthur_the_Rat_normed_5_snr_100/");
-    methods.push(wav_dir + "PAL-Arthur_the_Rat_normed_5_snr_100/");
     methods.push(wav_dir + "HEALTHY-Arthur_the_Rat_normed_5_snr_100/");
+
+    if (patient_id == "Patient_A"){
+        methods.push(wav_dir + "PAL-Arthur_the_Rat_normed_5_snr_100/");
+        file_list = makeFileList(methods, set_num);
+    }
+    else if (patient_id == "Patient_B"){
+        methods.push(wav_dir + "PAL_B/");
+        file_list = makeFileList_B(methods, set_num);
+    }
+    else if (patient_id == "Patient_C"){
+        methods.push(wav_dir + "PAL_C/");
+        file_list = makeFileList_C(methods, set_num);
+    }
+
     // methods.push(wav_dir + "method2/");
     // methods.push(wav_dir + "method3/");
     // methods.push(wav_dir + "method4/");
@@ -69,7 +82,7 @@ function start_experiment() {
     var rands = pickN(0, n_utt - 1, n_per_page * 2);
     // var number = document.getElementById("number").value
     file_list = makeFileList(methods, set_num);
-    outfile = name + "_" + "set" + set_num + "_nat.csv";
+    outfile = name + "_" + String(patient_id) + "_" + "set" + set_num + "_nat.csv";
     nat_scores = (new Array(file_list.length)).fill(0);
     init();
 }
@@ -121,6 +134,58 @@ function makeFileList(methods, which_set) {
     } 
     if (which_set == "5"){
         var names = loadText(wavnames_e);
+    } 
+    for (var i = 0; i < methods.length; i++) {
+        for (var j = 0; j < names.length; j++) {
+            files.push(methods[i] + names[j] + ".wav");
+        }
+    }
+    files.shuffle();
+    return files;
+}
+
+function makeFileList_B(methods, which_set) {
+    var files = new Array();
+    if (which_set == "1"){
+        var names = loadText(wavnames_e);
+    }
+    if (which_set == "2"){
+        var names = loadText(wavnames_d);
+    } 
+    if (which_set == "3"){
+        var names = loadText(wavnames_c);
+    } 
+    if (which_set == "4"){
+        var names = loadText(wavnames_b);
+    } 
+    if (which_set == "5"){
+        var names = loadText(wavnames_a);
+    } 
+    for (var i = 0; i < methods.length; i++) {
+        for (var j = 0; j < names.length; j++) {
+            files.push(methods[i] + names[j] + ".wav");
+        }
+    }
+    files.shuffle();
+    return files;
+}
+
+function makeFileList_C(methods, which_set) {
+    var files = new Array();
+    if (which_set == "1"){
+        var names = loadText(wavnames_e);
+    }
+    if (which_set == "2"){
+        var names = loadText(wavnames_d);
+    } 
+    if (which_set == "3"){
+        var names = loadText(wavnames_c);
+    } 
+    if (which_set == "4"){
+        var names = loadText(wavnames_b);
+    } 
+    if (which_set == "5"){
+        var names = loadText(wavnames_a);
     } 
     for (var i = 0; i < methods.length; i++) {
         for (var j = 0; j < names.length; j++) {
